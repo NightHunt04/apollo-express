@@ -25,10 +25,6 @@ const apolloServer = new ApolloServer({
 // start apollo graphql server
 await apolloServer.start()
 
-// connect mongo db
-connectMongoDB(process.env.MONGO_URL)
-.then(() => console.log('Mongo connected'))
-
 app.use(cors())
 app.use(express.json())
 
@@ -37,9 +33,14 @@ app.use('/api/graphql', expressMiddleware(apolloServer))
 
 app.get('/', (req, res) => res.send('🚀 server is running'))
 
-export default app
+// connect mongo db
+connectMongoDB(process.env.MONGO_URL)
+.then(() => {
+    console.log('Mongo connected')
+    app.listen(PORT, () => console.log(`🚀 Listening on port : ${PORT}`))
+})
 
-// app.listen(PORT, () => console.log(`🚀 Listening on port : ${PORT}`))
+export default app
 
 // await new Promise((resolve) => httpServer.listen({ port: PORT }, resolve))
 // console.log(`🚀 Server ready at http://localhost:${PORT}/`);
