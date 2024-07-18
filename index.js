@@ -35,7 +35,9 @@ app.use(express.json())
 // use apollo provided middleware to integrate with express
 app.use('/api/graphql', expressMiddleware(apolloServer))
 
-app.get('/', (req, res) => res.send('🚀 server is running'))
+app.get('/', (req, res) => res.send(`<p>server is running 🚀</p>
+    <p>GraphQl endpoint : /api/graphql</p>    
+    `))
 
 app.listen(PORT, () => console.log(`🚀 Listening on port : ${PORT}`))
 

@@ -17,7 +17,7 @@ curl --request POST \
   --data '{"query":"query { getUsers { username } }"}'
 ```
 The above code, may give you a response with all the usernames stored inside the database.
-This api and database is just for the demonstration purpose, so don't mind digging inside the database.
+This api and database are just for the demonstration purpose.
 
 Along with the `username`, you can get `id (MongoDB object id)`, `email (mock email)`, `ipAddress (fake)` from the database using the gql.
 
