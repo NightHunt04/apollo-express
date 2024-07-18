@@ -1,6 +1,7 @@
 import express from 'express'
 // import http from 'http'
 // import { ApolloServerPluginDrainHttpServer } from '@apollo/server/plugin/drainHttpServer'
+import { ApolloServerPluginLandingPageLocalDefault, ApolloServerPluginLandingPageProductionDefault } from '@apollo/server/plugin/landingPage/default';
 import cors from 'cors'
 import { ApolloServer } from '@apollo/server' 
 import { expressMiddleware } from '@apollo/server/express4'
@@ -19,7 +20,8 @@ const app = express()
 const apolloServer = new ApolloServer({
     typeDefs,
     resolvers,
-    // plugins: [ApolloServerPluginDrainHttpServer({ httpServer })]
+    introspection: true,
+    playground: true
 })
 
 // start apollo graphql server
