@@ -16,6 +16,7 @@ curl --request POST \
   --url 'https://apollo-express.vercel.app/api/graphql' \
   --data '{"query":"query { getUsers { username } }"}'
 ```
+(If the above request gives you a server error, then try again to send request)
 The above code, may give you a response with all the usernames stored inside the database.
 This api and database are just for the demonstration purpose.
 
